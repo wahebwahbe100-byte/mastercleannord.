@@ -107,7 +107,37 @@
       stroke-linecap:round;
       stroke-linejoin:round;
     }
-    .btn-secondary{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.35);color:#fff;backdrop-filter:blur(8px)}
+    /* Keep the secondary hero button transparent in every interaction state. */
+    .btn-secondary,
+    .btn-secondary:link,
+    .btn-secondary:visited,
+    .btn-secondary:hover,
+    .btn-secondary:focus,
+    .btn-secondary:active{
+      background:transparent;
+      background-color:transparent;
+      border-color:rgba(255,255,255,.35);
+      color:#fff;
+      -webkit-backdrop-filter:none;
+      backdrop-filter:none;
+      -webkit-appearance:none;
+      appearance:none;
+    }
+
+    /* Some touch browsers keep a simulated hover/active state after tapping. */
+    @media (hover:none), (pointer:coarse){
+      .hero .btn-secondary,
+      .hero .btn-secondary:hover,
+      .hero .btn-secondary:focus,
+      .hero .btn-secondary:active{
+        background:transparent!important;
+        background-color:transparent!important;
+        border-color:rgba(255,255,255,.35)!important;
+        color:#fff!important;
+        box-shadow:none!important;
+        transform:none;
+      }
+    }
     .btn-sky{background:var(--sky);color:var(--navy)}
     .hero-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-top:24px;border-top:1px solid rgba(255,255,255,.25)}
     .hero-proof div{display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.78);font-size:13px;line-height:1.35}
@@ -430,25 +460,11 @@
       .service-card{min-height:auto}
       .before-after{min-height:clamp(390px,115vw,500px)}
       .before-after-image{min-height:100%}
-
-      /* أزرار الهيرو على الهاتف: أصغر ومحاذاة إلى اليسار */
-      .hero-actions{
-        display:flex;
-        flex-direction:column;
-        align-items:flex-start;
-        gap:10px;
-      }
-      .hero-actions .btn{
-        width:auto;
-        min-width:0;
-        min-height:46px;
-        padding:11px 16px;
-        font-size:13px;
-      }
-      .hero .btn-primary{min-width:0;font-size:13px}
     }
 
     @media(max-width:440px){
+      .hero-actions{display:grid;grid-template-columns:1fr}
+      .hero-actions .btn{width:100%}
       .topbar-links a{overflow-wrap:anywhere}
       .contact-form{border-radius:20px}
     }
@@ -498,7 +514,7 @@
           <h1>Sauberkeit, die<br><span>Werte erhält.</span></h1>
           <p class="hero-lead">Professionelle Reinigung und Gebäudeservice für Gewerbe, Wohnanlagen und private Objekte – sorgfältig geplant, flexibel umgesetzt und persönlich betreut.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#leistungen" aria-label="Leistungen ansehen">Leistungen ansehen</a>
+            <a class="btn btn-primary" href="#leistungen" aria-label="Alle Leistungen ansehen">Alle Leistungen ansehen</a>
             <a class="btn btn-secondary" href="#kontakt">Kostenloses Angebot <span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17L17 7"></path><path d="M9 7h8v8"></path></svg></span></a>
           </div>
           <div class="hero-proof">
@@ -632,7 +648,7 @@
       <a class="brand" href="#top"><span class="logo-mark"><img src="logo.png" alt="MCN Logo"></span><span class="brand-copy"><strong>MASTERCLEAN <span class="brand-nord">NORD</span></strong><span>Reinigung & Gebäudeservice</span></span></a>
       <div class="footer-nav">
         <div><b>Navigation</b><a href="#leistungen">Leistungen</a><a href="#vorteile">Vorteile</a><a href="#unternehmen">Unternehmen</a><a href="#kontakt">Kontakt</a></div>
-        <div><b>Kontakt</b><a href="tel:+4945615133922">04561 5133922</a><a href="mailto:info@mastercleannord.de">info@mastercleannord.de</a><a href="https://www.google.com/maps/search/?api=1&query=Milchstra%C3%9Fe+4a%2C+23730+Altenkrempe" target="_blank" rel="noopener">Route planen</a></div>
+        <div><b>Kontakt</b><a href="tel:+4945615133922">04561 5133922</a><a href="mailto:info@mastercleannord.de">info@mastercleannord.de</a><a href="https://www.google.com/maps/search/?api=1&query=Milchstra%C3%9Fe+4a%2C+23730+Altenkrempe" target="_blank" rel="noopener">Route planen ↗</a></div>
         <div><b>Rechtliches</b><button type="button" data-dialog="impressum">Impressum</button><button type="button" data-dialog="datenschutz">Datenschutz</button></div>
       </div>
     </div>
