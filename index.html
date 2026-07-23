@@ -81,6 +81,32 @@
     .btn:hover{transform:translateY(-2px)}
     .btn-primary{background:var(--navy);color:#fff;box-shadow:0 14px 34px rgba(19,35,44,.22)}
     .btn-primary:hover{box-shadow:0 18px 42px rgba(19,35,44,.28)}
+    /* زر الخدمات داخل الواجهة الرئيسية: أوضح وتباينه أعلى على الخلفية الداكنة */
+    .hero .btn-primary{
+      min-width:230px;
+      background:var(--sky);
+      color:var(--navy);
+      border:0;
+      box-shadow:0 14px 34px rgba(0,0,0,.30);
+      font-size:15px;
+      font-weight:900;
+      letter-spacing:.01em;
+    }
+    .hero .btn-primary:hover{
+      background:#fff;
+      transform:translateY(-3px);
+      box-shadow:0 20px 44px rgba(0,0,0,.36);
+    }
+    .btn-icon svg{
+      display:block;
+      width:14px;
+      height:14px;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:2.2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
     .btn-secondary{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.35);color:#fff;backdrop-filter:blur(8px)}
     .btn-sky{background:var(--sky);color:var(--navy)}
     .hero-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-top:24px;border-top:1px solid rgba(255,255,255,.25)}
@@ -334,10 +360,11 @@
       .logo-mark img{width:auto;height:auto;max-width:54px;max-height:40px}
       .menu-toggle{flex:0 0 44px}
       .nav{top:96px}
-      .hero{min-height:620px;padding:82px 0 72px;background-image:linear-gradient(90deg,rgba(9,20,27,.88) 0%,rgba(9,20,27,.72) 42%,rgba(9,20,27,.26) 72%,rgba(9,20,27,.12) 100%),url('hero.mobile.png');background-position:62% center}
+      .hero{min-height:580px;padding:68px 0 56px;background-image:linear-gradient(90deg,rgba(9,20,27,.88) 0%,rgba(9,20,27,.72) 42%,rgba(9,20,27,.26) 72%,rgba(9,20,27,.12) 100%),url('hero.mobile.png');background-position:62% center}
       h1{font-size:clamp(46px,14vw,68px)}
       .hero-lead{font-size:16px}
-      .hero-proof{grid-template-columns:1fr}
+      .hero-actions{margin:28px 0 30px}
+      .hero-proof{grid-template-columns:1fr;padding-top:18px}
       .visual-panel{inset:10px 0 10px 18px}
       .metric-card{left:0;bottom:36px}
       .float-chip{right:0;top:48px}
@@ -396,7 +423,7 @@
 
     @media(max-width:700px){
       html{scroll-padding-top:96px}
-      .hero{min-height:clamp(560px,calc(100svh - 88px),720px)}
+      .hero{min-height:clamp(500px,calc(100svh - 110px),620px)}
       h2{font-size:clamp(36px,11vw,54px)}
       input,select,textarea{font-size:16px}
       .nav{left:0;right:0;top:calc(100% + 6px)}
@@ -457,8 +484,8 @@
           <h1>Sauberkeit, die<br><span>Werte erhält.</span></h1>
           <p class="hero-lead">Professionelle Reinigung und Gebäudeservice für Gewerbe, Wohnanlagen und private Objekte – sorgfältig geplant, flexibel umgesetzt und persönlich betreut.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#leistungen">Leistungen ansehen</a>
-            <a class="btn btn-secondary" href="#kontakt">Kostenloses Angebot <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-primary" href="#leistungen" aria-label="Alle Leistungen ansehen">Alle Leistungen ansehen</a>
+            <a class="btn btn-secondary" href="#kontakt">Kostenloses Angebot <span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17L17 7"></path><path d="M9 7h8v8"></path></svg></span></a>
           </div>
           <div class="hero-proof">
             <div><b>✓</b><span>Individuelle Leistungspakete</span></div>
